@@ -8,10 +8,4 @@ public interface DeedsAndDontsService {
 
     void requestConfirmation(Basket basket);
 
-
-
-
-
-
-
 }

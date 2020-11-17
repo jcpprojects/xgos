@@ -23,9 +23,6 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 
-/**
- *
- */
 @SpringBootTest
 @EmbeddedKafka(ports = 9092)
 public class IntegrationTest {
@@ -67,6 +64,9 @@ public class IntegrationTest {
                 Basket basket = optionalBasket.get();
                 assertEquals(id1, basket.getId());
                 assertEquals(100L, basket.getKidId().longValue());
+                assertEquals(1, basket.getOrders().size());
+                assertEquals(1, basket.getOrders().get(0).getQuantity().longValue());
+                assertEquals(1000L, basket.getOrders().get(0).getProductId().longValue());
                 return;
             }
             Thread.sleep(1000);

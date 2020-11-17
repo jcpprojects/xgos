@@ -4,9 +4,9 @@ import java.util.List;
 
 public class WishBasketDTO {
 
-    public String id;
-    public Long kidId;
-    public List<WishDTO> wishList;
+    private String id;
+    private Long kidId;
+    private List<WishDTO> wishList;
 
     public String getId() {
         return id;

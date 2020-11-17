@@ -1,21 +1,23 @@
 package com.santa.xgos.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Basket {
 
     @Id
-    public String id;
-    public Long kidId;
-    public BasketStatus status;
+    private String id;
+    private Long kidId;
+    private BasketStatus status;
 
-    @OneToMany(mappedBy = "basket", fetch = FetchType.EAGER)
-    public List<Order> orders;
+    @OneToMany(mappedBy = "basket", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Order> orders = new ArrayList<>();
 
     public String getId() {
         return id;
@@ -37,8 +39,9 @@ public class Basket {
         return orders;
     }
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
+    public void addOrder(Order order) {
+        this.orders.add(order);
+        order.setBasket(this);
     }
 
     public BasketStatus getStatus() {
@@ -48,6 +51,5 @@ public class Basket {
     public void setStatus(BasketStatus status) {
         this.status = status;
     }
-
 
 }

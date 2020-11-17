@@ -13,12 +13,12 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    Integer quantity;
-    Long productId;
-    Integer venueId;
-    Long deliveredReferenceId;
-    OrderStatus status;
+    private Long id;
+    private Integer quantity;
+    private Long productId;
+    private Integer venueId;
+    private Long deliveredReferenceId;
+    private OrderStatus status;
 
     @ManyToOne
     Basket basket;

@@ -2,8 +2,8 @@ package com.santa.xgos.message;
 
 public class WishDTO {
 
-    public Integer quantity;
-    public Long productId;
+    private Integer quantity;
+    private Long productId;
 
     public Integer getQuantity() {
         return quantity;
